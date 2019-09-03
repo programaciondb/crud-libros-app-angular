@@ -46,6 +46,9 @@
           <td>{{libro.autor}}</td>
           <td>{{libro.edicion}}</td>
           <td>{{libro.numcopias}}</td>
+          <td>
+            <button class="btn btn-outline-warning" (click)="getLibro(libro.idlibro)">Editar</button>
+          </td>
         </tr>
 
       </tbody>
