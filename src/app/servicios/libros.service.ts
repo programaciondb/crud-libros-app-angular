@@ -15,4 +15,14 @@ export class LibrosService {
   public getLibros(){
     return this.http.get(this.rutaRest);
   }
+  public getLibro(id: number): Observable<LibrosInterface>{
+    return this.http.get<LibrosInterface>(this.rutaRest+id);
+  }
+
+  public postLibro(libro: LibrosInterface): Observable<LibrosInterface> {
+      return this.http.post<LibrosInterface>(
+        this.rutaRest, libro, this.httpOptions
+      );
+  }
+
 }
