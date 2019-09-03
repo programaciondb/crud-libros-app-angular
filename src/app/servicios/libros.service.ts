@@ -25,7 +25,7 @@ export class LibrosService {
     );
   }
   public putLibro(id: number, libro: LibrosInterface): Observable<LibrosInterface> {
-    return this.http.post<LibrosInterface>(
+    return this.http.put<LibrosInterface>(
       this.rutaRest + id, libro, this.httpOptions
     );
   }

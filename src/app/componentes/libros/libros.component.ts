@@ -15,7 +15,7 @@ export class LibrosComponent implements OnInit {
 
   ngOnInit() {
     this.getLibros();
-    this.getLibro(1);
+    //this.getLibro(0);
   }
 
   public getLibros() {
@@ -28,6 +28,14 @@ export class LibrosComponent implements OnInit {
     libroObservable.subscribe(
       libroObtenido => this.libro = libroObtenido
     );
+  }
+
+  public postLibro(){
+    var libroObservable = this.librosServicios.postLibro(this.libro);
+    libroObservable.subscribe(
+      libroObtenido => this.libro = libroObtenido
+    );
+    this.getLibros();
   }
 
 }
