@@ -9,6 +9,7 @@ import { LibrosService } from 'src/app/servicios/libros.service';
 })
 export class LibrosComponent implements OnInit {
 
+  form: Boolean = false;
   public libro: LibrosInterface;
   public libros: LibrosInterface;
   constructor(private librosServicios: LibrosService) { }
@@ -26,8 +27,10 @@ export class LibrosComponent implements OnInit {
   public getLibro(id: number) {
     var libroObservable = this.librosServicios.getLibro(id);
     libroObservable.subscribe(
-      libroObtenido => this.libro = libroObtenido
-    );
+      libroObtenido => {
+        this.libro = libroObtenido;
+        this.form = true;
+      });
   }
 
   public postLibro() {
@@ -35,17 +38,18 @@ export class LibrosComponent implements OnInit {
     libroObservable.subscribe(
       libroObtenido => {
         this.libro = libroObtenido;
-        this.getLibros()
+        this.getLibros();
+        this.form = false;
       }
     );
-    this.getLibros();
   }
   public putLibro(id: number) {
     var libroObservable = this.librosServicios.putLibro(id, this.libro);
     libroObservable.subscribe(
       libroObtenido => {
         this.libro = libroObtenido;
-        this.getLibros()
+        this.getLibros();
+        this.form = false;
       }
     );
 
@@ -56,7 +60,7 @@ export class LibrosComponent implements OnInit {
     estado.subscribe(
       estado => {
         this.getLibros();
-        this.getLibro(0);
+        this.form = false;
       });
 
   }
