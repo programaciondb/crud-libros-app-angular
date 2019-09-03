@@ -13,6 +13,7 @@ export class LibrosComponent implements OnInit {
   constructor(private librosServicios: LibrosService) { }
 
   ngOnInit() {
+    this.getLibros();
   }
 
   public getLibros(){
