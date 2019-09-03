@@ -2,36 +2,33 @@
 
   <div class="col-md-3">
     <button class="btn btn-outline-info" (click)="getLibro(0)">Nuevo</button>
-      <div *ngIf="libro">
-        <p>
-          <label>Titulo</label>
-          <input type="hidden" [(ngModel)]="libro.idlibro">
-          <input class="form-control" [(ngModel)]="libro.titulo">
-        </p>
-        <p>
-          <label>Autor</label>
-          <input class="form-control" [(ngModel)]="libro.autor">
-        </p>
-        <p>
-          <label>Edición</label>
-          <input class="form-control" [(ngModel)]="libro.edicion">
-        </p>
-        <p>
-          <label>Num. Copias</label>
-          <input class="form-control" [(ngModel)]="libro.numcopias">
-        </p>
-        <p>
-          <button class="btn btn-info"  (click)="postLibro(libro.idlibro)">POST</button>&nbsp;
-          <button class="btn btn-warning"  (click)="putLibro(libro.idlibro)">PUT</button>&nbsp;
-          <button class="btn btn-danger"  (click)="deleteLibro(libro.idlibro)">DELETE</button>
-        </p>
-      </div>
+    <div *ngIf="libro">
+      <p>
+        <label>Titulo</label>
+        <input type="hidden" [(ngModel)]="libro.idlibro">
+        <input class="form-control" [(ngModel)]="libro.titulo">
+      </p>
+      <p>
+        <label>Autor</label>
+        <input class="form-control" [(ngModel)]="libro.autor">
+      </p>
+      <p>
+        <label>Edición</label>
+        <input class="form-control" [(ngModel)]="libro.edicion">
+      </p>
+      <p>
+        <label>Num. Copias</label>
+        <input class="form-control" [(ngModel)]="libro.numcopias">
+      </p>
+      <p>
+        <button class="btn btn-info" (click)="postLibro(libro.idlibro)">POST</button>&nbsp;
+        <button class="btn btn-warning" (click)="putLibro(libro.idlibro)">PUT</button>&nbsp;
+        <button class="btn btn-danger" (click)="deleteLibro(libro.idlibro)">DELETE</button>
+      </p>
+    </div>
   </div>
 
   <div class="col-md-9">
-
-
-
     <table class="table table-bordered table-striped">
       <thead>
         <tr>

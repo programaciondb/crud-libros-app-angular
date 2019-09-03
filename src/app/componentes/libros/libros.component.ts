@@ -34,7 +34,7 @@ export class LibrosComponent implements OnInit {
     var libroObservable = this.librosServicios.postLibro(this.libro);
     libroObservable.subscribe(
       libroObtenido => {
-      this.libro = libroObtenido;
+        this.libro = libroObtenido;
         this.getLibros()
       }
     );
@@ -44,7 +44,7 @@ export class LibrosComponent implements OnInit {
     var libroObservable = this.librosServicios.putLibro(id, this.libro);
     libroObservable.subscribe(
       libroObtenido => {
-      this.libro = libroObtenido;
+        this.libro = libroObtenido;
         this.getLibros()
       }
     );
@@ -52,6 +52,12 @@ export class LibrosComponent implements OnInit {
   }
 
   public deleteLibro(id: number) {
+    var estado = this.librosServicios.deleteLibro(id);
+    estado.subscribe(
+      estado => {
+        this.getLibros();
+        this.getLibro(0);
+      });
 
   }
 
