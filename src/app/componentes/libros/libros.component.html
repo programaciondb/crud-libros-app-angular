@@ -21,7 +21,9 @@
           <input class="form-control" [(ngModel)]="libro.numcopias">
         </p>
         <p>
-          <button class="btn btn-info"  (click)="postLibro(libro.idlibro)">POST</button>
+          <button class="btn btn-info"  (click)="postLibro(libro.idlibro)">POST</button>&nbsp;
+          <button class="btn btn-warning"  (click)="putLibro(libro.idlibro)">PUT</button>&nbsp;
+          <button class="btn btn-danger"  (click)="deleteLibro(libro.idlibro)">DELETE</button>
         </p>
       </div>
   </div>
@@ -47,7 +49,8 @@
           <td>{{libro.edicion}}</td>
           <td>{{libro.numcopias}}</td>
           <td>
-            <button class="btn btn-outline-warning" (click)="getLibro(libro.idlibro)">Editar</button>
+            <button class="btn btn-outline-warning" (click)="getLibro(libro.idlibro)">Editar</button>&nbsp;
+            <button class="btn btn-outline-danger" (click)="getLibro(libro.idlibro)">Borrar</button>
           </td>
         </tr>
 

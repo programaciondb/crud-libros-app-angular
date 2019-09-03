@@ -30,12 +30,29 @@ export class LibrosComponent implements OnInit {
     );
   }
 
-  public postLibro(){
+  public postLibro() {
     var libroObservable = this.librosServicios.postLibro(this.libro);
     libroObservable.subscribe(
-      libroObtenido => this.libro = libroObtenido
+      libroObtenido => {
+      this.libro = libroObtenido;
+        this.getLibros()
+      }
     );
     this.getLibros();
+  }
+  public putLibro(id: number) {
+    var libroObservable = this.librosServicios.putLibro(id, this.libro);
+    libroObservable.subscribe(
+      libroObtenido => {
+      this.libro = libroObtenido;
+        this.getLibros()
+      }
+    );
+
+  }
+
+  public deleteLibro(id: number) {
+
   }
 
 }
